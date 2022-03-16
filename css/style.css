@@ -101,7 +101,7 @@ form:valid a {
     perspective: 1000px; 
     background-color:transparent !important;
     border: transparent !important;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .card-grid {
@@ -132,7 +132,6 @@ form:valid a {
     backface-visibility: hidden;
     overflow: hidden;
     border-radius: 16px;
-    
 }
 .card__face--front:hover {
     box-shadow: 0px 3px 18px 3px #C0C3CF;
