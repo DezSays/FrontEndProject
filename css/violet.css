@@ -1,0 +1,26 @@
+ /* 
+background-color: #00274Fnavy hover background
+#030813 search options text
+#C0C3CF search options background greyish
+#F4C904 yellow for hover text and selected movie
+}
+
+(gradient effect: #027DA5, #025C82, #034166, #032B4E, #041A3B)
+*/
+
+
+.bg-black{
+    background-color: black;
+}
+
+.bg-navy{
+    background-color: #001427;
+}
+
+.bg-accent{
+    background-color: #BF0603;
+}
+
+.bg-lightGreen{
+    background-color: #708d81;
+}
