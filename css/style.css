@@ -18,8 +18,7 @@ form{
     background: whitesmoke;
     border-radius: 25px;
     border: 4px solid whitesmoke;
-    margin:10px;
-    
+    margin:10px;  
 }
 
 input{
@@ -109,7 +108,6 @@ form:valid a {
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap:1rem;
-    
 }
 
 .card__inner {
@@ -123,7 +121,6 @@ form:valid a {
 
 .card__inner.is-flipped {
     transform: rotateY(180deg);
-
 }
 
 
