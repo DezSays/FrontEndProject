@@ -99,10 +99,11 @@ form:valid a {
 
 .card {
     margin:50px;
-    width: 25vw;
-    height: 25vh;
-    perspective: 1000px;
-    
+    width: 20vw;
+    height: 30vh;
+    perspective: 1000px; 
+    background-color:transparent !important;
+    border: transparent !important;
 }
 
 .card__inner {
@@ -116,6 +117,7 @@ form:valid a {
 
 .card__inner.is-flipped {
     transform: rotateY(180deg);
+
 }
 
 
@@ -143,7 +145,7 @@ form:valid a {
 
 .card__face--front h2 {
     color: #FFF;
-    font-size: 32px;
+    font-size: 25px;
 }
 
 .card__face--back {
@@ -157,6 +159,7 @@ form:valid a {
 .card__face--back p {
     color: #FFF;
     font-size: 20px;
+    text-align: center;
 }
 
 .card__content {
