@@ -7,6 +7,11 @@ body {
     background-image: linear-gradient(#027DA5, #025C82, #034166, #032B4E, #041A3B)
 }
 
+
+
+
+
+
 form{
     position: relative;
     top: 50%;
@@ -104,11 +109,7 @@ form:valid a {
     padding-top: 50px;
 }
 
-.card-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap:1rem;
-}
+
 
 .card__inner {
     width: 100%;

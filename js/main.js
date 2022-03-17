@@ -5,13 +5,20 @@
     fetch(`https://imdb-api.com/en/API/SearchTitle/${key}/the patriot`)
     .then(result => result.json())
     .then(data => {
-        console.log(data.results);
+        console.log(data);
+        let col5 = document.querySelector(".col-5");
+        let ul = document.createElement('ul');
+        col5.appendChild(ul)
 
+        let htmlFragment = ""
         data.results.forEach(element => {
+
             console.log(element.title, element.description, element.id);
+            htmlFragment += `<li> ${element.title} ${element.description} </li>`
 
         
     });
+    ul.innerHTML = htmlFragment 
 
 })
 // }
