@@ -2,27 +2,27 @@
 // fetch(`https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction`)
 
 // let movietvTitleFetch = title => {
-//     fetch(`https://imdb-api.com/en/API/SearchTitle/${key}/the patriot`)
-//     .then(result => result.json())
-//     .then(data => {
-//         console.log(data.results);
+    fetch(`https://imdb-api.com/en/API/SearchTitle/${key}/the patriot`)
+    .then(result => result.json())
+    .then(data => {
+        console.log(data);
+        let col5 = document.querySelector(".col-5");
+        let ul = document.createElement('ul');
+        col5.appendChild(ul)
 
-//         let ul = document.querySelector("ul")
+        let htmlFragment = ""
+        data.results.forEach(element => {
 
-//         data.results.forEach(element => {
-//             console.log(element.title, element.description, element.id);
-
-//             `<li><a href=#>${element.title} ${element.description}</li></a>`
-
-            
+            console.log(element.title, element.description, element.id);
+            htmlFragment += `<li> ${element.title} ${element.description} </li>`
 
         
-//     });
+    });
+    ul.innerHTML = htmlFragment 
 
-    
-// })
+})
 // }
-// movietvTitleFetch()
+
 
 // fetch(`https://imdb-api.com/en/API/Title/${key}/tt1375666/`)
 
@@ -74,18 +74,4 @@ const card = document.querySelector(".card__inner");
 card.addEventListener("click", function (e) {
     card.classList.toggle('is-flipped');
 });
-
-
-
-const searchMovieTitleTrial = async () => {
-
-    let movieArr = [];
-    let pageIndex = 1;
-    
-    let movieTitle = await fetch(`https://imdb-api.com/en/API/SearchTitle/${key}/the patriot`)
-
-    let resultsArr = await movieTitle.json();
-    console.log(resultsArr);
-}
-searchMovieTitleTrial()
 
