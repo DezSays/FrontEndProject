@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-12">
                     <form action="">
-                        <input type="search" required>
+                        <input type="text" required>
                         <i class="fa fa-search"></i>
                         <a href="javascript:void(0)" id="clear-btn">Clear</a>
                         
@@ -58,11 +58,87 @@
                         </div>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card__inner">
+                            <div class="card__face card__face--front">
+                                <h2>Movie Suggestion</h2>
+                            </div>
+
+                            <!-- back of movie suggestions -->
+
+                        <div class="card__face card__face--back">
+                            <div class="card__content">
+                                <div class="card__header">
+                                </div>
+
+                            <div class="card__body">
+                                <p>placeholder text for movie info</p>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card__inner">
+                            <div class="card__face card__face--front">
+                                <h2>Movie Suggestion</h2>
+                            </div>
+
+                            <!-- back of movie suggestions -->
+
+                        <div class="card__face card__face--back">
+                            <div class="card__content">
+                                <div class="card__header">
+                                </div>
+
+                            <div class="card__body">
+                                <p>placeholder text for movie info</p>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__inner">
+                            <div class="card__face card__face--front">
+                                <h2>Movie Suggestion</h2>
+                            </div>
+
+                            <!-- back of movie suggestions -->
+
+                        <div class="card__face card__face--back">
+                            <div class="card__content">
+                                <div class="card__header">
+                                </div>
+
+                            <div class="card__body">
+                                <p>placeholder text for movie info</p>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
                 </div>
             </div>
 
     <script src="js/secrets.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        let input = document.querySelector("input");
+        let col5 = document.querySelector('col-5');
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                // col5.innerHTML = " ";
+                console.log('enter');
+                movietvTitleFetch(input.value);
+                // console.log(input);
+            }
+        })
+
+    </script>
 </body>
 </html>
