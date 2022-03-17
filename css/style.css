@@ -68,8 +68,8 @@ form:valid .fa{
 
 
 a {
-    display: none;
-    position: absolute;
+    /* display: none; */
+    /* position: absolute; */
     top: 70px;
     bottom:0;
     left: 0;
@@ -79,6 +79,11 @@ a {
     text-align: center; 
     width: 100%;
 }
+
+a:link {color: lightblue;}  
+a:visited {color: white}  
+a:hover {color: #FCFC0C}  
+a:active {color: #C0F0FC} 
 
 form:valid a {
     display: block;
@@ -193,3 +198,6 @@ form:valid a {
     color:whitesmoke;
 }
 
+ul {
+    list-style-type: none;
+}
