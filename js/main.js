@@ -15,7 +15,6 @@ let movietvTitleFetch = title => {
         col5.appendChild(ulTag)
         let htmlFragment = "";
 
-        let htmlFragment = ""
         data.results.forEach(element => {
             // console.log(element.title, element.description, element.id);
             // let liTag = document.createElement('li');
