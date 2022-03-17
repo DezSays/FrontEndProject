@@ -64,28 +64,55 @@ clearBtn.addEventListener("click", clearInput);
 // end of search clear code
 
 // card flip code
-const card1 = document.querySelector(".cardJs1");
-const card2 = document.querySelector(".cardJs2");
-const card3 = document.querySelector(".cardJs3");
-const card4 = document.querySelector(".cardJs4");
+let htmlFragment = ""
+let cards = document.querySelector('#cards')
 
-card1.addEventListener("click", function (e) {
-    card1.classList.toggle('is-flipped');
-});
-card2.addEventListener("click", function (e) {
-    card2.classList.toggle('is-flipped');
-});
-card3.addEventListener("click", function (e) {
-    card3.classList.toggle('is-flipped');
-});
-card4.addEventListener("click", function (e) {
-    card4.classList.toggle('is-flipped');
-});
+let mockData = [
+    {Title: "Media Title 1"},
+    {Title: "Media Title 2"},
+    {Title: "Media Title 3"},
+    {Title: "Media Title 4"},
+    {Title: "Media Title 4"},
+    {Title: "Media Title 4"},
+]
 
-// let card = document.getElementsByClassName('card')
+mockData.forEach((obj, i) =>{
+    htmlFragment += `
+    <div id="card${i}" class="card">
+    <div class="card__inner">
+    <!-- front of movie suggestion card -->
+    <div class="card__face card__face--front">
+        <h2>${obj.Title}</h2>
+    </div>
+    <!-- back of movie suggestions -->
+    <div class="card__face card__face--back">
+    <div class="card__content">
+    <div class="card__header"><p>Header Text</p></div>
+    <div class="card__body"><p>Body Text</p></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    `
+})
 
-// card.addEventListener('click', event => {
-//     if(event.target.classList.contains('cardJs')) {
-//         event.target.classList.toggle('is-flipped')
-//     }
-// })
+cards.innerHTML = htmlFragment
+
+cards.addEventListener('click', event => {
+    console.log(event.target.parentNode);
+    console.log(event.target);
+    if(event.target.parentNode.classList.contains('card__inner')) {
+        event.target.parentNode.classList.toggle('is-flipped')
+    }
+    else if (event.target.classList.contains('card__content') ||
+            event.target.parentNode.classList.contains('card__face')) {
+        event.target.parentNode.parentNode.classList.toggle('is-flipped')
+    }
+    else if (event.target.classList.contains('card__header') || 
+            event.target.classList.contains('card__body')) {
+        event.target.parentNode.parentNode.parentNode.classList.toggle('is-flipped')
+    }
+    else if (event.target.parentNode.classList.contains('card__header') ||
+            event.target.parentNode.classList.contains('card__body'))
+    event.target.parentNode.parentNode.parentNode.parentNode.classList.toggle('is-flipped')
+})
