@@ -41,12 +41,13 @@ let movieTvTitleFetch = title => {
 }
 
 
+
 // fetch(`https://imdb-api.com/en/API/Title/${key}/tt1375666/`)
 
 let imdbInfo = "pulp fiction"
 
 let tasteDiveFetch = () => {
-    fetch(`https://tastedive.com/api/similar?info=1&q=${imdbInfo}`) //https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction
+    fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=movies&k=${tasteDiveKey}`) //https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction
     .then(result=>result.json())
     .then(data=> {
         console.log(data);
