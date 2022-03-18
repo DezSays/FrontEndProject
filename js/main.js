@@ -12,6 +12,8 @@ col4.innerHTML = ""
 col4.appendChild(ulTag)
 let imdbInfo = ""
 
+// titleFetch('tt0386676')
+
 
 let movieTvTitleFetch = title => {
     fetch(`https://imdb-api.com/en/API/SearchTitle/${imdbKey}/${title}`)
