@@ -7,10 +7,12 @@ let movies = document.querySelector('#movies')
 let shows = document.querySelector('#shows')
 let col4 = document.getElementById('search-selection')
 let ulTag = document.createElement('ul')
+let imdbInfo = ""
+let h2movies = document.querySelector('#h2movies')
+let h2shows = document.querySelector('#h2shows')
 body.appendChild(container)
 col4.innerHTML = ""
 col4.appendChild(ulTag)
-let imdbInfo = ""
 
 // titleFetch('tt0386676')
 
@@ -40,11 +42,6 @@ let movieTvTitleFetch = title => {
 }
 
 
-// fetch(`https://imdb-api.com/en/API/Title/${key}/tt1375666/`)
-
-// let imdbInfo = "Bob's Burgers"
-
-
 let tasteDiveMovieFetch = (imdbInfo) => {
     fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=movies&k=${tasteDiveKey}`)
 
@@ -52,7 +49,10 @@ let tasteDiveMovieFetch = (imdbInfo) => {
     .then(data=> {
         console.log(data);
         console.log(data.Similar.Results);
-        makeCards(data, 'movie');
+        if (data.Similar.Results.length != 0) {
+            h2movies.innerText = 'Movies'
+            makeCards(data, 'movie');
+        }
         htmlFragment = ""
     })
 }
@@ -63,7 +63,10 @@ let tasteDiveShowFetch = (imdbInfo) => {
     .then(data=> {
         console.log(data);
         console.log(data.Similar.Results);
-        makeCards(data, 'show');
+        if (data.Similar.Results.length != 0) {
+            h2shows.innerText = 'Shows'
+            makeCards(data, 'show');
+        }
         htmlFragment = ""
     })
 }
@@ -93,7 +96,7 @@ function makeCards(data, type) {
             </div>
             </div>
             `
-            console.log(mediaObj.Name);
+                console.log(mediaObj.Name);
         }
     if (type == 'show') {
         shows.innerHTML = htmlFragment
@@ -143,8 +146,6 @@ let runtime = document.createElement('span')
 let typeOfRating = document.createElement('span')
 
 
-
-
 col4.appendChild(poster)
 col4.appendChild(movieTitle)
 col4.appendChild(contentGenre)
@@ -172,8 +173,6 @@ clearBtn.addEventListener("click", clearInput);
 
 //card flip event listener
 cards.addEventListener('click', event => {
-    // console.log(event.target.parentNode);
-    // console.log(event.target);
     if(event.target.parentNode.classList.contains('card__inner')) {
         event.target.parentNode.classList.toggle('is-flipped')
     }
