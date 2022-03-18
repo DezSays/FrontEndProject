@@ -3,13 +3,8 @@ let container = document.querySelector('div')
 let recTitle = document.querySelector('div')
 let htmlFragment = ""
 let cards = document.querySelector('#cards')
-var tag = document.createElement('script');
-tag.src = 'https://www.youtube.com/iframe_api';
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
-
-
+let movies = document.querySelector('#movies')
+let shows = document.querySelector('#shows')
 body.appendChild(container)
 let col4 = document.getElementById('search-selection')
 let ulTag = document.createElement('ul')
@@ -18,7 +13,7 @@ col4.appendChild(ulTag)
 // fetch(`https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction`)
 
 let movieTvTitleFetch = title => {
-    fetch(`https://imdb-api.com/en/API/SearchTitle/${key}/${title}`)
+    fetch(`https://imdb-api.com/en/API/SearchTitle/${imdbKey}/${title}`)
     .then(result => result.json())
     .then(data => {
         // console.log(data.results);
@@ -43,17 +38,38 @@ let movieTvTitleFetch = title => {
 
 // fetch(`https://imdb-api.com/en/API/Title/${key}/tt1375666/`)
 
-let imdbInfo = "pulp fiction"
+let imdbInfo = "the office"
 
-let tasteDiveFetch = () => {
-    fetch(`https://tastedive.com/api/similar?info=1&q=${imdbInfo}`) //https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction
+let tasteDiveMovieFetch = () => {
+    fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=movies&k=${tasteDiveKey}`) //https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction
     .then(result=>result.json())
     .then(data=> {
         console.log(data);
         console.log(data.Similar.Results);
-        
-        data.Similar.Results.forEach((mediaObj, i) => {
-            if (i < 6) {
+        makeCards(data, 'movie');
+        htmlFragment = ""
+    })
+}
+
+let tasteDiveShowFetch = () => {
+    fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=shows&k=${tasteDiveKey}`) //https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction
+    .then(result=>result.json())
+    .then(data=> {
+        console.log(data);
+        console.log(data.Similar.Results);
+        makeCards(data, 'show');
+        htmlFragment = ""
+    })
+}
+
+//! function call
+tasteDiveShowFetch();
+tasteDiveMovieFetch();
+
+function makeCards(data, type) {
+
+    data.Similar.Results.forEach((mediaObj, i) => {
+        if (i < 3) {
             htmlFragment += `
             <div id="card${i}" class="card">
             <div class="card__inner">
@@ -76,20 +92,19 @@ let tasteDiveFetch = () => {
             </div>
             `
             console.log(mediaObj.Name);
-            }
-        })
-        cards.innerHTML = htmlFragment
+        }
+    if (type == 'show') {
+        shows.innerHTML = htmlFragment
+    }
+    else if (type == 'movie') {
+        movies.innerHTML = htmlFragment
+    }
     })
 }
-//! function call
-tasteDiveFetch();
-//${mediaObj.yUrl}
-//mediaObj.wUrl for Wikipedia page
-
 
 
 let titleFetch = ttCode => {
-    fetch(`https://imdb-api.com/en/API/Title/${key}/${ttCode}/`)
+    fetch(`https://imdb-api.com/en/API/Title/${imdbKey}/${ttCode}/`)
     .then(result => result.json())
     .then(data => {
         console.log(data);
