@@ -231,4 +231,7 @@ ul {
     color: blue;
 }
 
-
+img {
+    align-self: center;
+    height: 60vh;
+}
