@@ -5,12 +5,13 @@ let htmlFragment = ""
 let cards = document.querySelector('#cards')
 let movies = document.querySelector('#movies')
 let shows = document.querySelector('#shows')
-body.appendChild(container)
 let col4 = document.getElementById('search-selection')
 let ulTag = document.createElement('ul')
+body.appendChild(container)
 col4.innerHTML = ""
 col4.appendChild(ulTag)
-// fetch(`https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction`)
+let imdbInfo = ""
+
 
 let movieTvTitleFetch = title => {
     fetch(`https://imdb-api.com/en/API/SearchTitle/${imdbKey}/${title}`)
@@ -23,25 +24,25 @@ let movieTvTitleFetch = title => {
         data.results.forEach(element => {
             // console.log(element.title, element.description, element.id);
 
-            htmlFragment += `<li><a href="#" onclick="titleFetch('${element.id}'); return false;">${element.title} ${element.description}</a></li>`
+            htmlFragment += `
+            <li>
+            <a href="#" onclick="titleFetch('${element.id}'); tasteDiveShowFetch('${element.title}'); tasteDiveMovieFetch('${element.title}'); return false;">
+            ${element.title} ${element.description}
+            </a>
+            </li>`
             // htmlFragment += `<li><a href="#">${element.title} ${element.description}</a></li>`
         });
-
-        ulTag.innerHTML = htmlFragment
-
         
-
-
+        ulTag.innerHTML = htmlFragment
 })
 }
 
-
 // fetch(`https://imdb-api.com/en/API/Title/${key}/tt1375666/`)
 
-let imdbInfo = "the office"
+// let imdbInfo = "Bob's Burgers"
 
-let tasteDiveMovieFetch = () => {
-    fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=movies&k=${tasteDiveKey}`) //https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction
+let tasteDiveMovieFetch = (imdbInfo) => {
+    fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=movies&k=${tasteDiveKey}`)
     .then(result=>result.json())
     .then(data=> {
         console.log(data);
@@ -51,8 +52,8 @@ let tasteDiveMovieFetch = () => {
     })
 }
 
-let tasteDiveShowFetch = () => {
-    fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=shows&k=${tasteDiveKey}`) //https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction
+let tasteDiveShowFetch = (imdbInfo) => {
+    fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=shows&k=${tasteDiveKey}`) 
     .then(result=>result.json())
     .then(data=> {
         console.log(data);
@@ -61,10 +62,6 @@ let tasteDiveShowFetch = () => {
         htmlFragment = ""
     })
 }
-
-//! function call
-tasteDiveShowFetch();
-tasteDiveMovieFetch();
 
 function makeCards(data, type) {
 
@@ -104,11 +101,12 @@ function makeCards(data, type) {
 
 
 let titleFetch = ttCode => {
+    // console.log("ttCode", ttCode);
     fetch(`https://imdb-api.com/en/API/Title/${imdbKey}/${ttCode}/`)
     .then(result => result.json())
     .then(data => {
         console.log(data);
-        console.log('ehllo');
+        // console.log('ehllo');
 
         ulTag.innerHTML = ""
 
