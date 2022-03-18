@@ -231,7 +231,14 @@ ul {
     color: blue;
 }
 
-img {
-    align-self: center;
-    height: 60vh;
+
+#search-selection{
+    color: whitesmoke;
+}
+
+#search-selection img{
+    display:flex;
+    height:60vh;
+    justify-content: center;
+    
 }
