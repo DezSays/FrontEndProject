@@ -11,48 +11,36 @@ var player;
 
 
 body.appendChild(container)
+let col4 = document.getElementById('search-selection')
+let ulTag = document.createElement('ul')
+col4.innerHTML = ""
+col4.appendChild(ulTag)
+// fetch(`https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction`)
 
-let movietvTitleFetch = title => {
+let movieTvTitleFetch = title => {
     fetch(`https://imdb-api.com/en/API/SearchTitle/${key}/${title}`)
     .then(result => result.json())
     .then(data => {
-        console.log(data.results);
-
-        let col5 = document.querySelector('.col-5')
-        let ulTag = document.createElement('ul')
-        ulTag.innerHTML = "";
-        col5.appendChild(ulTag)
+        // console.log(data.results);
+        
         let htmlFragment = "";
-
 
         data.results.forEach(element => {
             // console.log(element.title, element.description, element.id);
-            // let liTag = document.createElement('li');
-            // liTag.className = "liClass"
-            // let aTag = document.createElement('a')
-            // aTag.className = "aClass";
-            // aTag.innerText = element.title + element.description
-            // liTag.appendChild(aTag)
 
-            // let aTag = document.createElement('a');
-            // aTag.setAttribute('href', "#")
-            // aTag.innerText = element.title + " " + element.description
-            // col5.appendChild(aTag);
-
-            // htmlFragment += `<li><a href="${titleFetch(element.id)}">${element.title} ${element.description}</a></li>`
-            htmlFragment += `<li><a href="#">${element.title} ${element.description}</a></li>`
-            // htmlFragment += liTag;
-        
-
+            htmlFragment += `<li><a href="#" onclick="titleFetch('${element.id}'); return false;">${element.title} ${element.description}</a></li>`
+            // htmlFragment += `<li><a href="#">${element.title} ${element.description}</a></li>`
         });
 
         ulTag.innerHTML = htmlFragment
 
-        // click event
+        
 
 
 })
 }
+
+
 // fetch(`https://imdb-api.com/en/API/Title/${key}/tt1375666/`)
 
 let imdbInfo = "pulp fiction"
@@ -101,25 +89,37 @@ tasteDiveFetch();
 
 
 let titleFetch = ttCode => {
-    fetch(`https://imdb-api.com/en/API/Title/${keys}/${ttCode}/`)
+    fetch(`https://imdb-api.com/en/API/Title/${key}/${ttCode}/`)
     .then(result => result.json())
     .then(data => {
         console.log(data);
+        console.log('ehllo');
 
+        ulTag.innerHTML = ""
+
+        ulTag.innerHTML = ""
+        //poster.setAttribute('src', data.image)
+        poster.src=data.image
         // clear col-5 div (blank the innerHTML)
-        //poster
-        //title
-        //year
-        //rating
+        //image
+        //fullTitle
+        //imDbRating
+        //genres 
+        //runtimeStr 
+        //contentRating
 
 })
 }
+
+let poster = document.createElement('img')
+col4.appendChild(poster)
+
 
 // let input = document.querySelector('input')
 // input.addEventListener("keyup", function(event) {
 //     if (event.keyCode === 13) {
 //         console.log('enter');
-//         movietvTitleFetch(input.value)
+//         movieTvTitleFetch(input.value)
 //         console.log(input);
 //     }
 // })
