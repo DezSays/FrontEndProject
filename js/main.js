@@ -4,22 +4,17 @@ let recTitle = document.querySelector('div')
 
 body.appendChild(container)
 
-
-// fetch(`https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction`)
-
 let col4 = document.getElementById('search-selection')
 let ulTag = document.createElement('ul')
 col4.innerHTML = ""
 col4.appendChild(ulTag)
+// fetch(`https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction`)
 
 let movieTvTitleFetch = title => {
     fetch(`https://imdb-api.com/en/API/SearchTitle/${key}/${title}`)
     .then(result => result.json())
     .then(data => {
         // console.log(data.results);
-
-
-        
         
         let htmlFragment = "";
 
@@ -27,10 +22,7 @@ let movieTvTitleFetch = title => {
             // console.log(element.title, element.description, element.id);
 
             htmlFragment += `<li><a href="#" onclick="titleFetch('${element.id}'); return false;">${element.title} ${element.description}</a></li>`
-            //htmlFragment += `<li><a href="#">${element.title} ${element.description}</a></li>`
-
-        
-
+            // htmlFragment += `<li><a href="#">${element.title} ${element.description}</a></li>`
         });
 
         ulTag.innerHTML = htmlFragment
@@ -59,6 +51,9 @@ let titleFetch = ttCode => {
     .then(result => result.json())
     .then(data => {
         console.log(data);
+        console.log('ehllo');
+
+        ulTag.innerHTML = ""
 
         ulTag.innerHTML = ""
         //poster.setAttribute('src', data.image)
