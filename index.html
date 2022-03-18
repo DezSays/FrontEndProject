@@ -15,31 +15,27 @@
 </head>
 
 <body>
-
-    <div class="container-fluid">
-        
+    <div class="container-fluid">  
         <!-- nav bar -->
         <div class="row">
-            <div class="col-3">
+            <div class="col-2 offset-2">
                 <form action="">
                     <input type="search" required>
                     <i class="fa fa-search"></i>
                     <a href="javascript:void(0)" id="clear-btn">Clear</a>
                 </form>
             </div>
-            <div class="col">Top Recommendations</div>
+            <div id="headText" class="col-3 offset-3 mt-5"><h2>Top Recommendations</h2></div>
         </div>
         
         
         <div class="row">
             <div id="search-selection" class="col-4"></div> <!-- col-5 placeholder -->
-            <div id="cards" class="col-7 d-flex flex-wrap align-items-end justify-content-end"></div>
+            <div id="cards" class="col-lg-7 col-md-7 col-sm-12 mt-5 d-flex flex-wrap justify-content-end"></div>
         </div>
     </div>
-    
-    <!-- <script src="js/secret.js"></script> -->
+    <script src="js/secrets.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
     <script src="js/main.js"></script>
     <script>
         let input = document.querySelector("input");
@@ -53,7 +49,7 @@
                 // console.log(input);
             }
         })
-
     </script>
+    <script type="text/javascript" src="https://codegena.com/assets/js/youtube-embed.js"></script>
 </body>
 </html>
