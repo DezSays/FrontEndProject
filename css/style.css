@@ -234,11 +234,30 @@ ul {
 
 #search-selection{
     color: whitesmoke;
+    
+
+}
+
+#search-selection span{
+    padding-left: 35%;
+    
+}
+
+#search-selection p{
+    padding-left: 35%;
+    
+}
+
+#search-selection h3{
+    padding-left: 35%;
+    padding-top:5%;
+    
 }
 
 #search-selection img{
     display:flex;
     height:60vh;
     justify-content: center;
-    
+    padding-left: 35%;
+    padding-top:30px;
 }
