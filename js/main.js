@@ -97,22 +97,42 @@ let titleFetch = ttCode => {
 
         ulTag.innerHTML = ""
 
-        ulTag.innerHTML = ""
         //poster.setAttribute('src', data.image)
         poster.src=data.image
+        movieTitle.innerHTML = data.fullTitle
+        contentGenre.innerHTML = data.genres
+        userScore.innerHTML = `IMDb Rating: ${data.imDbRating}🌟`
+        runtime.innerHTML = data.runtimeStr
+        typeOfRating.innerHTML = data.contentRating
         // clear col-5 div (blank the innerHTML)
-        //image
-        //fullTitle
-        //imDbRating
-        //genres 
-        //runtimeStr 
-        //contentRating
+        //image --complete
+        //fullTitle --complete
+        //imDbRating --complete
+        //genres --complete
+        //runtimeStr --complete
+        //contentRating --complete
 
 })
 }
 
 let poster = document.createElement('img')
+let movieTitle = document.createElement('h3')
+let contentGenre = document.createElement('p')
+
+
+let userScore = document.createElement('p')
+let runtime = document.createElement('span')
+let typeOfRating = document.createElement('span')
+
+
+
+
 col4.appendChild(poster)
+col4.appendChild(movieTitle)
+col4.appendChild(contentGenre)
+col4.appendChild(userScore)
+col4.appendChild(runtime)
+col4.appendChild(typeOfRating)
 
 
 // let input = document.querySelector('input')
