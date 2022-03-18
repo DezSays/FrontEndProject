@@ -37,12 +37,15 @@ let movieTvTitleFetch = title => {
 })
 }
 
+
 // fetch(`https://imdb-api.com/en/API/Title/${key}/tt1375666/`)
 
 // let imdbInfo = "Bob's Burgers"
 
+
 let tasteDiveMovieFetch = (imdbInfo) => {
     fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=movies&k=${tasteDiveKey}`)
+
     .then(result=>result.json())
     .then(data=> {
         console.log(data);
