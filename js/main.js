@@ -14,6 +14,8 @@ body.appendChild(container)
 col4.innerHTML = ""
 col4.appendChild(ulTag)
 
+// titleFetch('tt0386676')
+
 
 let movieTvTitleFetch = title => {
     fetch(`https://imdb-api.com/en/API/SearchTitle/${imdbKey}/${title}`)
@@ -42,6 +44,7 @@ let movieTvTitleFetch = title => {
 
 let tasteDiveMovieFetch = (imdbInfo) => {
     fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=movies&k=${tasteDiveKey}`)
+
     .then(result=>result.json())
     .then(data=> {
         console.log(data);
