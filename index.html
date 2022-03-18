@@ -45,13 +45,12 @@
     <script src="js/main.js"></script>
     <script>
         let input = document.querySelector("input");
-        //let col5 = document.querySelector('col-5');
+        // let col4 = document.querySelector('col-4');
         input.addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 event.preventDefault();
-                // col5.innerHTML = " ";
-                //console.log('enter');
-                movieTvTitleFetch(input.value);
+                console.log('enter');
+                movietvTitleFetch(input.value);
                 // console.log(input);
             }
         })
