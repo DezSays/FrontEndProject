@@ -10,27 +10,44 @@ let ulTag = document.createElement('ul')
 let imdbInfo = ""
 let h2movies = document.querySelector('#h2movies')
 let h2shows = document.querySelector('#h2shows')
+let refresh = document.getElementById('search-selection')
 body.appendChild(container)
-col4.innerHTML = ""
-col4.appendChild(ulTag)
+// col4.innerHTML = ""
+// col4.appendChild(ulTag)
 
 // titleFetch('tt0386676')
 
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 
 let movieTvTitleFetch = title => {
     fetch(`https://imdb-api.com/en/API/SearchTitle/${imdbKey}/${title}`)
     .then(result => result.json())
     .then(data => {
         // console.log(data.results);
+        // col4.innerHTML = "";
+        // ulTag.innerHTML = "";
+        removeAllChildNodes(col4);
+        removeAllChildNodes(h2movies);
+        removeAllChildNodes(h2shows);
+        removeAllChildNodes(movies);
+        removeAllChildNodes(shows);
+
+        col4.appendChild(ulTag);
         
         let htmlFragment = "";
-
+        
         data.results.forEach(element => {
             // console.log(element.title, element.description, element.id);
 
+            let apostrophe = element.title.replaceAll("'", "%27");
+            
             htmlFragment += `
             <li>
-            <a href="#" onclick="titleFetch('${element.id}'); tasteDiveShowFetch('${element.title}'); tasteDiveMovieFetch('${element.title}'); return false;">
+            <a href="#" id="populate" onclick='titleFetch("${element.id}"); tasteDiveShowFetch("${apostrophe}"); tasteDiveMovieFetch("${apostrophe}"); return false;'>
             ${element.title} ${element.description}
             </a>
             </li>`
@@ -38,9 +55,34 @@ let movieTvTitleFetch = title => {
         });
         
         ulTag.innerHTML = htmlFragment
-})
+    })
 }
 
+let titleFetch = ttCode => {
+    // console.log("ttCode", ttCode);
+    fetch(`https://imdb-api.com/en/API/Title/${imdbKey}/${ttCode}/`)
+    .then(result => result.json())
+    .then(data => {
+        console.log(data);
+        // console.log('ehllo');
+
+        ulTag.innerHTML = ""
+        col4.appendChild(poster)
+        col4.appendChild(movieTitle)
+        col4.appendChild(contentGenre)
+        col4.appendChild(userScore)
+        col4.appendChild(typeOfRating)
+        col4.appendChild(runtime)
+
+        poster.src=data.image
+        movieTitle.innerHTML = data.fullTitle
+        contentGenre.innerHTML = data.genres
+        userScore.innerHTML = `IMDb Rating: ${data.imDbRating}🌟`
+        runtime.innerHTML = data.runtimeStr
+        typeOfRating.innerHTML = data.contentRating
+
+})
+}
 
 let tasteDiveMovieFetch = (imdbInfo) => {
     fetch(`https://tastedive.com/api/similar?info=1&limit=50&q=${imdbInfo}&type=movies&k=${tasteDiveKey}`)
@@ -107,28 +149,6 @@ function makeCards(data, type) {
     })
 }
 
-
-let titleFetch = ttCode => {
-    // console.log("ttCode", ttCode);
-    fetch(`https://imdb-api.com/en/API/Title/${imdbKey}/${ttCode}/`)
-    .then(result => result.json())
-    .then(data => {
-        console.log(data);
-        // console.log('ehllo');
-
-        ulTag.innerHTML = ""
-
-        poster.src=data.image
-        movieTitle.innerHTML = data.fullTitle
-        contentGenre.innerHTML = data.genres
-        userScore.innerHTML = `IMDb Rating: ${data.imDbRating}🌟`
-        runtime.innerHTML = data.runtimeStr
-        typeOfRating.innerHTML = data.contentRating
-
-
-})
-}
-
 let poster = document.createElement('img')
 let movieTitle = document.createElement('h3')
 let contentGenre = document.createElement('p')
@@ -139,12 +159,12 @@ let runtime = document.createElement('span')
 let typeOfRating = document.createElement('span')
 
 
-col4.appendChild(poster)
-col4.appendChild(movieTitle)
-col4.appendChild(contentGenre)
-col4.appendChild(userScore)
-col4.appendChild(runtime)
-col4.appendChild(typeOfRating)
+// col4.appendChild(poster)
+// col4.appendChild(movieTitle)
+// col4.appendChild(contentGenre)
+// col4.appendChild(userScore)
+// col4.appendChild(runtime)
+// col4.appendChild(typeOfRating)
 
 
 // let input = document.querySelector('input')
