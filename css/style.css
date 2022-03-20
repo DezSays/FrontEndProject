@@ -234,22 +234,30 @@ ul {
 
 #search-selection{
     color: whitesmoke;
+    margin-bottom: 0%;
     
 
+}
+
+#search-selection span:first-of-type{
+    margin-left: 40%;
+    margin-bottom: 0%;
+    
 }
 
 #search-selection span{
-    padding-left: 35%;
-    
+    margin-left:5%;
 }
 
 #search-selection p{
-    padding-left: 35%;
+    
+    padding-left: 40%;
+    margin-bottom: 0%;
     
 }
 
 #search-selection h3{
-    padding-left: 35%;
+    padding-left: 40%;
     padding-top:5%;
     
 }
@@ -258,6 +266,6 @@ ul {
     display:flex;
     height:60vh;
     justify-content: center;
-    padding-left: 35%;
+    padding-left: 40%;
     padding-top:30px;
 }
