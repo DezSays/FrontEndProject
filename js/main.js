@@ -149,8 +149,6 @@ function makeCards(data, type) {
     })
 }
 
-
-
 let poster = document.createElement('img')
 let movieTitle = document.createElement('h3')
 let contentGenre = document.createElement('p')
