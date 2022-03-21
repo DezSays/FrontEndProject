@@ -7,7 +7,7 @@ msg += 'Select the title of your choosing. <br>';
 msg += 'You will receive your selection\'s information on the left side of the screen and recommendations on the right side. <br>';
 msg += 'Click on each recommendation to read the description along with its Wikipedia page at the bottom. <br>';
 msg += 'Enjoy! <br>';
-msg += "<img src='images/example.png' class=''></div>"
+msg += "<img src='images/landing.png' class=''></div>"
 
 
 let divTag = document.createElement('div');  //<div></div>
