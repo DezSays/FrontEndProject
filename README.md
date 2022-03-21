@@ -1,25 +1,44 @@
-# Hello
+# Media Recommendations
 
-## This is h2
+## Tech Stack
+- Bootstrap
+- JavaScript
+- CSS
+- HTML
+- AJAX
 
-- one
-- two *this is italics*
-- three **this is bold**
+APIs
+- Taste Dive
+- IMDb
 
-~strike through~
+## MVP
+- Media search gallery returns a list of selectable titles
+- Selected title returns recommended movies and/or TV shows
+- Interactive tile cards can be clicked for additional information
 
-> here is a blockquote
 
-```js
+## Completed Stretch Goals
+- Styled Landing Display
+- Favicon
+- Title Description
+- Improved Search Function
+- Display Card Flips
 
-console.log('hello world')
 
-```
+## Future Goals
+- Mobile Responsiveness
+- Browser Responsiveness
+- Add an option that allows for more than six recommendations
+- Error catching
 
-1. one
-2. two
-3. three
 
-[google](https://google.com/)
+## The Team
+### **Dezarea Bryan:** https://github.com/DezSays
+**Team Role:** API (IMDb), Lead Designer, Bootstrap, JavaScript, HTML, CSS
 
-![](https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg)
+### **Violet Medina:** https://github.com/browneyes303
+**Team Role:** API (TasteDive), AJAX, Bootstrap, JavaScript, HTML, CSS
+
+### **Tri Vu:** https://github.com/trimvu
+**Team Role:** API (IMDb), AJAX, Bootstrap, JavaScript, HTML, CSS
+

@@ -1,3 +1,4 @@
+
 body {
     font-family: montserrat, sans-serif;
     padding: 0px;
@@ -343,16 +344,16 @@ a#populate:active {color: black; text-align: center;}
 
 a#populate {
     text-decoration: none;
-  }
+}
 
-  a#populate {
+a#populate {
     background:
-      linear-gradient(
+    linear-gradient(
         to right,
         rgba(100, 200, 200, 1),
         rgba(100, 200, 200, 1)
-      ),
-      linear-gradient(
+    ),
+    linear-gradient(
         to right,
         #A76202,
         /* #A7020F, */
@@ -362,11 +363,16 @@ a#populate {
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
     transition: background-size 400ms;
-  }
+}
 
-  a#populate:hover {
+a#populate:hover {
     background-size: 0 3px, 100% 3px;
-  }
+}
 
+
+
+
+
+  
 
 
