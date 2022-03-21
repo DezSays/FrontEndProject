@@ -234,14 +234,21 @@ ul {
 
 }
 
-#search-selection span{
+
+
+#search-selection span:first-of-type{
     padding-left: 35%;
+    
+}
+
+#search-selection span{
+    padding-left: 5%;
     
 }
 
 #search-selection p{
     padding-left: 35%;
-    
+    margin-bottom:0%;
 }
 
 #search-selection h3{
@@ -255,7 +262,7 @@ ul {
     height:60vh;
     justify-content: center;
     padding-left: 35%;
-    padding-top:30px;
+    padding-top:15%;
 }
 
 
@@ -319,7 +326,7 @@ a#populate {
     bottom:0;
     left: 25%;
     right: 0;
-    font-size: 30px;
+    font-size: 20px;
     color: whitesmoke;
     position: relative;
     text-align: center;
