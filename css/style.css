@@ -230,30 +230,22 @@ ul {
 
 #search-selection{
     color: whitesmoke;
-    margin-bottom: 0%;
     
 
-}
-
-#search-selection span:first-of-type{
-    margin-left: 40%;
-    margin-bottom: 0%;
-    
 }
 
 #search-selection span{
-    margin-left:5%;
+    padding-left: 35%;
+    
 }
 
 #search-selection p{
-    
-    padding-left: 40%;
-    margin-bottom: 0%;
+    padding-left: 35%;
     
 }
 
 #search-selection h3{
-    padding-left: 40%;
+    padding-left: 35%;
     padding-top:5%;
     
 }
@@ -262,7 +254,7 @@ ul {
     display:flex;
     height:60vh;
     justify-content: center;
-    padding-left: 40%;
+    padding-left: 35%;
     padding-top:30px;
 }
 
